@@ -85,7 +85,7 @@ fetch_from_sources() {
   out="$2"
   for base in "$PRIMARY_BASE" "$FALLBACK_BASE"; do
     url="$(join_url "$base" "$path")"
-    if curl -fsSL --connect-timeout 15 --max-time 60 "$url" -o "$out"; then
+    if curl -fsSL --connect-timeout 5 --max-time 15 "$url" -o "$out"; then
       return 0
     fi
   done
@@ -141,7 +141,7 @@ while IFS= read -r url; do
   if [ "$url" = "" ]; then
     continue
   fi
-  if curl -fsSL --connect-timeout 15 --max-time 600 --speed-time 30 --speed-limit 20480 "$url" -o "$archive_path"; then
+  if curl -fsSL --connect-timeout 5 --max-time 600 --speed-time 30 --speed-limit 20480 "$url" -o "$archive_path"; then
     downloaded=1
     break
   fi

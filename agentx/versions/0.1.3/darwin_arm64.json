@@ -1,0 +1,18 @@
+{
+  "name": "agentx",
+  "version": "0.1.3",
+  "platform": "darwin_arm64",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://github.com/hooziwang/agentx-binary-packages/releases/download/v0.1.3/agentx_0.1.3_darwin_arm64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx/releases/0.1.3/agentx_0.1.3_darwin_arm64.tar.gz"
+    }
+  ],
+  "sha512": "0612adf496de3ea22086b6ad91e77749573623dc13af71da7a80bae64c9b2b210851aa88516fa9382dac1c1d8d1f53dcf86f7641d90b659005709df2b3726e08",
+  "size": 26223777,
+  "releasedAt": "2026-06-01T10:51:50.656Z"
+}

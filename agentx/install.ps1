@@ -17,6 +17,11 @@ $PrimaryBase = if ($env:AGENTX_BINARY_RELEASE_PRIMARY_BASE_URL) { $env:AGENTX_BI
 $FallbackBase = if ($env:AGENTX_BINARY_RELEASE_FALLBACK_BASE_URL) { $env:AGENTX_BINARY_RELEASE_FALLBACK_BASE_URL } else { "https://agentx.aelus.tech/cli" }
 $LocalAppData = if ($env:LOCALAPPDATA) { $env:LOCALAPPDATA } else { Join-Path $env:USERPROFILE "AppData\Local" }
 $InstallDir = if ($Dir) { $Dir } else { Join-Path $LocalAppData "AgentX\bin" }
+$ConnectTimeoutSeconds = 5
+$ManifestTimeoutSeconds = 15
+$AssetTimeoutSeconds = 600
+$LowSpeedWindowSeconds = 30
+$LowSpeedBytesPerSecond = 20480
 
 if (-not [Environment]::Is64BitOperatingSystem) {
   throw "AgentX CLI installer supports Windows x64 only."
@@ -30,7 +35,7 @@ function Get-AgentXJsonWithFallback([string]$Path) {
   foreach ($base in @($PrimaryBase, $FallbackBase)) {
     $url = Join-AgentXUrl $base $Path
     try {
-      return Invoke-RestMethod -Uri $url -UseBasicParsing -TimeoutSec 60
+      return Invoke-AgentXJsonRequest $url
     } catch {
       $script:lastJsonError = $_
     }
@@ -51,13 +56,80 @@ function Get-AgentXSha512([string]$Path) {
 function Save-AgentXDownload([object[]]$Downloads, [string]$OutFile) {
   foreach ($download in @($Downloads)) {
     try {
-      Invoke-WebRequest -Uri $download.url -OutFile $OutFile -UseBasicParsing -TimeoutSec 600
+      Save-AgentXDownloadWithLowSpeedCheck $download.url $OutFile
       return
     } catch {
       $script:lastDownloadError = $_
+      Remove-Item -Force $OutFile -ErrorAction SilentlyContinue
     }
   }
   throw "Failed to download AgentX binary archive: $script:lastDownloadError"
+}
+
+function New-AgentXHttpClient([int]$TimeoutSeconds) {
+  try {
+    $handler = New-Object System.Net.Http.SocketsHttpHandler
+    $handler.ConnectTimeout = [TimeSpan]::FromSeconds($ConnectTimeoutSeconds)
+  } catch {
+    $handler = New-Object System.Net.Http.HttpClientHandler
+  }
+  $client = [System.Net.Http.HttpClient]::new($handler)
+  $client.Timeout = [TimeSpan]::FromSeconds($TimeoutSeconds)
+  return $client
+}
+
+function Invoke-AgentXJsonRequest([string]$Url) {
+  $client = New-AgentXHttpClient $ManifestTimeoutSeconds
+  $response = $null
+  try {
+    $response = $client.GetAsync($Url).GetAwaiter().GetResult()
+    if (-not $response.IsSuccessStatusCode) {
+      throw "HTTP $([int]$response.StatusCode) for $Url"
+    }
+    $json = $response.Content.ReadAsStringAsync().GetAwaiter().GetResult()
+    return $json | ConvertFrom-Json
+  } finally {
+    if ($response) { $response.Dispose() }
+    if ($client) { $client.Dispose() }
+  }
+}
+
+function Save-AgentXDownloadWithLowSpeedCheck([string]$Url, [string]$OutFile) {
+  $client = New-AgentXHttpClient $AssetTimeoutSeconds
+  $response = $null
+  $inputStream = $null
+  $outputStream = $null
+  try {
+    $response = $client.GetAsync($Url, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()
+    if (-not $response.IsSuccessStatusCode) {
+      throw "HTTP $([int]$response.StatusCode) for $Url"
+    }
+
+    $inputStream = $response.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
+    $outputStream = [System.IO.File]::Open($OutFile, [System.IO.FileMode]::Create, [System.IO.FileAccess]::Write, [System.IO.FileShare]::None)
+    $buffer = New-Object byte[] 81920
+    $watch = [System.Diagnostics.Stopwatch]::StartNew()
+    [Int64]$bytesInWindow = 0
+
+    while (($read = $inputStream.Read($buffer, 0, $buffer.Length)) -gt 0) {
+      $outputStream.Write($buffer, 0, $read)
+      $bytesInWindow += $read
+
+      if ($watch.Elapsed.TotalSeconds -ge $LowSpeedWindowSeconds) {
+        $minimumBytes = $LowSpeedBytesPerSecond * $watch.Elapsed.TotalSeconds
+        if ($bytesInWindow -lt $minimumBytes) {
+          throw "Download too slow for $Url"
+        }
+        $watch.Restart()
+        $bytesInWindow = 0
+      }
+    }
+  } finally {
+    if ($outputStream) { $outputStream.Dispose() }
+    if ($inputStream) { $inputStream.Dispose() }
+    if ($response) { $response.Dispose() }
+    if ($client) { $client.Dispose() }
+  }
 }
 
 $latest = Get-AgentXJsonWithFallback "agentx/latest.json"
