@@ -108,6 +108,26 @@ json_urls() {
     | sed -E 's/.*"url"[[:space:]]*:[[:space:]]*"([^"]+)".*/\1/'
 }
 
+ensure_ax_alias() {
+  local alias_path
+  alias_path="$INSTALL_DIR/ax"
+  if [ -L "$alias_path" ] && [ "$(readlink "$alias_path")" = "agentx" ]; then
+    return 0
+  fi
+  if ! rm -f "$alias_path"; then
+    echo "Warning: failed to remove existing ax command alias at $alias_path." >&2
+    return 0
+  fi
+  if ! ln -s agentx "$alias_path"; then
+    if ! cp "$target" "$alias_path"; then
+      echo "Warning: failed to create ax command alias at $alias_path." >&2
+      return 0
+    fi
+    chmod +x "$alias_path" || true
+  fi
+  xattr -d com.apple.quarantine "$alias_path" >/dev/null 2>&1 || true
+}
+
 latest_path="$tmp_dir/latest.json"
 if ! fetch_from_sources "agentx/latest.json" "$latest_path"; then
   echo "Failed to download AgentX latest manifest." >&2
@@ -176,6 +196,7 @@ cp "$extract_dir/agentx" "$tmp_target"
 chmod +x "$tmp_target"
 mv "$tmp_target" "$target"
 xattr -d com.apple.quarantine "$target" >/dev/null 2>&1 || true
+ensure_ax_alias
 
 "$target" install --dir "$INSTALL_DIR"
 echo "AgentX ${latest_version} installed at ${target}."

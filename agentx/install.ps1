@@ -157,10 +157,17 @@ $Extracted = Join-Path $ExtractDir "agentx.exe"
 if (-not (Test-Path $Extracted)) { throw "AgentX archive does not contain agentx.exe." }
 
 $Target = Join-Path $InstallDir "agentx.exe"
+$AliasTarget = Join-Path $InstallDir "ax.exe"
 $TempTarget = "$Target.tmp"
 Copy-Item -LiteralPath $Extracted -Destination $TempTarget -Force
 Move-Item -LiteralPath $TempTarget -Destination $Target -Force
 Unblock-File -Path $Target -ErrorAction SilentlyContinue
+try {
+  Copy-Item -LiteralPath $Target -Destination $AliasTarget -Force
+  Unblock-File -Path $AliasTarget -ErrorAction SilentlyContinue
+} catch {
+  Write-Warning "Failed to create ax.exe command alias at ${AliasTarget}: $_"
+}
 
 & $Target install --dir $InstallDir
 Write-Output "AgentX $($manifest.version) installed at $Target."
