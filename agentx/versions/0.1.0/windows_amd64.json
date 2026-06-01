@@ -1,0 +1,18 @@
+{
+  "name": "agentx",
+  "version": "0.1.0",
+  "platform": "windows_amd64",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://github.com/hooziwang/agentx-binary-packages/releases/download/v0.1.0/agentx_0.1.0_windows_amd64.zip"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx/releases/0.1.0/agentx_0.1.0_windows_amd64.zip"
+    }
+  ],
+  "sha512": "6204dc640a2401c2c4142db4212e296773052d4770021ce35e1b716a38370f4047109d59102c652320391df6ce40743b1b441aa5be2d5879badfbb1baf250acf",
+  "size": 40361626,
+  "releasedAt": "2026-06-01T07:59:03.646Z"
+}
