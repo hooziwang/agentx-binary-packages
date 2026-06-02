@@ -12,7 +12,7 @@
       "url": "https://agentx.aelus.tech/cli/agentx-admin/releases/0.0.1/agentx-admin_0.0.1_linux_amd64.tar.gz"
     }
   ],
-  "sha512": "c29fc8d207326a092dd4484fa991ee338a90d1534053fccb3f57456002ba77235e878d312dd8640a02c6a0fb7b99f08597aacdad2a9348eb87ff3ce4a0a3e785",
+  "sha512": "19c2aa36dc0c9cf65f171fd6546e3b3dc72dff6bbd5fe619a4f7a278a344ead3bec3142f6a18591e6ad38b6455cd565d85b1c2442428db526fd7a6e71a3ea1dd",
   "size": 3037869,
-  "releasedAt": "2026-06-02T12:03:51Z"
+  "releasedAt": "2026-06-02T12:13:29Z"
 }
