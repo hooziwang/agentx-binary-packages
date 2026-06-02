@@ -1,0 +1,18 @@
+{
+  "name": "agentx-listing-generation",
+  "version": "0.0.1",
+  "platform": "windows_amd64",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-listing-generation/releases/0.0.1/agentx-listing-generation_0.0.1_windows_amd64.zip"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-listing-generation/releases/0.0.1/agentx-listing-generation_0.0.1_windows_amd64.zip"
+    }
+  ],
+  "sha512": "bdd998926a7c81c5590768019320a1ccd38af4b46a3f2b188ee246121f090ce3cafa43343ff8b46e6d88b8204028193265ed1dcb72becbba5aeb608c48780e80",
+  "size": 10295136,
+  "releasedAt": "2026-06-02T11:47:04Z"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "agentx-listing-generation",
+  "version": "0.0.1",
+  "platform": "darwin_arm64",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-listing-generation/releases/0.0.1/agentx-listing-generation_0.0.1_darwin_arm64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-listing-generation/releases/0.0.1/agentx-listing-generation_0.0.1_darwin_arm64.tar.gz"
+    }
+  ],
+  "sha512": "01a89ca692379b60323455c23846e22fc7f098b8f547dfb40874affcf82747d337113ec38acfdf9cc4ac9b2fad2c91ca69489bd39aada0f8fbec89d6d5424088",
+  "size": 8602834,
+  "releasedAt": "2026-06-02T11:47:04Z"
+}
