@@ -113,6 +113,20 @@ fetch_from_sources() {
   return 1
 }
 
+download_url() {
+  local url out
+  url="$1"
+  out="$2"
+  curl -fsSL --connect-timeout 5 --max-time 600 --speed-time 30 --speed-limit 20480 "$url" -o "$out"
+}
+
+is_absolute_url() {
+  case "$1" in
+    http://*|https://*|file://*) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
 json_string() {
   local json key
   json="$1"
@@ -143,43 +157,50 @@ if [ "$latest_version" = "" ] || [ "$manifest_path" = "" ]; then
   exit 1
 fi
 
-platform_manifest_path="$tmp_dir/$platform.json"
-if ! fetch_from_sources "$manifest_path" "$platform_manifest_path"; then
-  echo "Failed to download agentx-admin platform manifest." >&2
-  exit 1
-fi
-
-platform_manifest="$(cat "$platform_manifest_path")"
-expected_sha512="$(json_string "$platform_manifest" "sha512" | tr 'A-F' 'a-f')"
-if [ "$expected_sha512" = "" ]; then
-  echo "agentx-admin platform manifest is missing sha512." >&2
-  exit 1
-fi
-
 archive_path="$tmp_dir/$APP_SLUG.tar.gz"
-downloaded=0
-while IFS= read -r url; do
-  if [ "$url" = "" ]; then
-    continue
+if is_absolute_url "$manifest_path"; then
+  if ! download_url "$manifest_path" "$archive_path"; then
+    echo "Failed to download agentx-admin binary archive." >&2
+    exit 1
   fi
-  if curl -fsSL --connect-timeout 5 --max-time 600 --speed-time 30 --speed-limit 20480 "$url" -o "$archive_path"; then
-    downloaded=1
-    break
+else
+  platform_manifest_path="$tmp_dir/$platform.json"
+  if ! fetch_from_sources "$manifest_path" "$platform_manifest_path"; then
+    echo "Failed to download agentx-admin platform manifest." >&2
+    exit 1
   fi
-done <<EOF
+
+  platform_manifest="$(cat "$platform_manifest_path")"
+  expected_sha512="$(json_string "$platform_manifest" "sha512" | tr 'A-F' 'a-f')"
+  if [ "$expected_sha512" = "" ]; then
+    echo "agentx-admin platform manifest is missing sha512." >&2
+    exit 1
+  fi
+
+  downloaded=0
+  while IFS= read -r url; do
+    if [ "$url" = "" ]; then
+      continue
+    fi
+    if download_url "$url" "$archive_path"; then
+      downloaded=1
+      break
+    fi
+  done <<EOF
 $(json_urls "$platform_manifest")
 EOF
 
-if [ "$downloaded" != "1" ]; then
-  echo "Failed to download agentx-admin binary archive." >&2
-  exit 1
-fi
+  if [ "$downloaded" != "1" ]; then
+    echo "Failed to download agentx-admin binary archive." >&2
+    exit 1
+  fi
 
-actual_sha512="$(sha512_file "$archive_path")"
-if [ "$actual_sha512" != "$expected_sha512" ]; then
-  rm -f "$archive_path"
-  echo "agentx-admin binary archive SHA512 mismatch." >&2
-  exit 1
+  actual_sha512="$(sha512_file "$archive_path")"
+  if [ "$actual_sha512" != "$expected_sha512" ]; then
+    rm -f "$archive_path"
+    echo "agentx-admin binary archive SHA512 mismatch." >&2
+    exit 1
+  fi
 fi
 
 extract_dir="$tmp_dir/extract"

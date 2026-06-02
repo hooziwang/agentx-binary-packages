@@ -1,0 +1,18 @@
+{
+  "name": "agentx-admin",
+  "version": "0.0.3",
+  "platform": "linux_arm64",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-admin/releases/0.0.3/agentx-admin_0.0.3_linux_arm64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-admin/releases/agentx-admin_0.0.3_linux_arm64.tar.gz"
+    }
+  ],
+  "sha512": "4edd019800e07e20d86b5a4252b323740172d056199d5c2619ba1942ecb68e75a8d04f06d3787e49277905952dd078c8eafa8222e029b09e42c67465734786f4",
+  "size": 2739942,
+  "releasedAt": "2026-06-02T17:38:56Z"
+}

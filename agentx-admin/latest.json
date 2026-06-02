@@ -1,12 +1,12 @@
 {
   "name": "agentx-admin",
-  "latestVersion": "0.0.2",
-  "releasedAt": "2026-06-02T13:03:09Z",
+  "latestVersion": "0.0.3",
+  "releasedAt": "2026-06-02T17:38:56Z",
   "manifests": {
-    "darwin_arm64": "agentx-admin/versions/0.0.2/darwin_arm64.json",
-    "darwin_amd64": "agentx-admin/versions/0.0.2/darwin_amd64.json",
-    "linux_amd64": "agentx-admin/versions/0.0.2/linux_amd64.json",
-    "linux_arm64": "agentx-admin/versions/0.0.2/linux_arm64.json",
-    "windows_amd64": "agentx-admin/versions/0.0.2/windows_amd64.json"
+    "darwin_arm64": "agentx-admin/versions/0.0.3/darwin_arm64.json",
+    "darwin_amd64": "agentx-admin/versions/0.0.3/darwin_amd64.json",
+    "linux_amd64": "agentx-admin/versions/0.0.3/linux_amd64.json",
+    "linux_arm64": "agentx-admin/versions/0.0.3/linux_arm64.json",
+    "windows_amd64": "agentx-admin/versions/0.0.3/windows_amd64.json"
   }
 }

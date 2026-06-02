@@ -1,0 +1,18 @@
+{
+  "name": "agentx-admin",
+  "version": "0.0.3",
+  "platform": "darwin_amd64",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-admin/releases/0.0.3/agentx-admin_0.0.3_darwin_amd64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-admin/releases/agentx-admin_0.0.3_darwin_amd64.tar.gz"
+    }
+  ],
+  "sha512": "4acf324c001871eaf0e38aa6ebe40b1335658c1fb36a817b01ff6d9a89eeb7f4f78cc562146278e52986561aae2a2899d242407550a5e145447ec76d02ebecea",
+  "size": 3061817,
+  "releasedAt": "2026-06-02T17:38:56Z"
+}

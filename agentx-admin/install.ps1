@@ -44,7 +44,9 @@ function Invoke-AgentXJson([string]$Path) {
 function Save-AgentXDownload([object[]]$Downloads, [string]$OutFile) {
   foreach ($download in @($Downloads)) {
     try {
-      Invoke-WebRequest -UseBasicParsing -Uri $download.url -OutFile $OutFile -TimeoutSec 600
+      $url = if ($download -is [string]) { $download } else { $download.url }
+      if (-not $url) { continue }
+      Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $OutFile -TimeoutSec 600
       return
     } catch {
       $script:lastDownloadError = $_
@@ -54,22 +56,33 @@ function Save-AgentXDownload([object[]]$Downloads, [string]$OutFile) {
   throw "Failed to download agentx-admin binary archive: $script:lastDownloadError"
 }
 
+function Test-AgentXAbsoluteUrl([string]$Value) {
+  return $Value.StartsWith("https://") -or $Value.StartsWith("http://") -or $Value.StartsWith("file://")
+}
+
 $latest = Invoke-AgentXJson "$AppSlug/latest.json"
 $manifestPath = $latest.manifests.windows_amd64
 if (-not $manifestPath) { throw "agentx-admin latest manifest is missing windows_amd64." }
-$manifest = Invoke-AgentXJson $manifestPath
-if (-not $manifest.sha512) { throw "agentx-admin platform manifest is missing sha512." }
+$manifest = $null
+if (-not (Test-AgentXAbsoluteUrl $manifestPath)) {
+  $manifest = Invoke-AgentXJson $manifestPath
+  if (-not $manifest.sha512) { throw "agentx-admin platform manifest is missing sha512." }
+}
 
 $StagingDir = Join-Path $LocalAppData "AgentXAdmin\staging"
 $ExtractDir = Join-Path $StagingDir "extract"
 $ArchivePath = Join-Path $StagingDir "agentx-admin.zip"
 New-Item -ItemType Directory -Force -Path $StagingDir, $ExtractDir, $InstallDir | Out-Null
 
-Save-AgentXDownload @($manifest.downloads) $ArchivePath
-$actualSha512 = (Get-FileHash -Algorithm SHA512 -Path $ArchivePath).Hash.ToLowerInvariant()
-if ($actualSha512 -ne $manifest.sha512.ToLowerInvariant()) {
-  Remove-Item -Force $ArchivePath -ErrorAction SilentlyContinue
-  throw "agentx-admin binary archive SHA512 mismatch."
+if ($manifest) {
+  Save-AgentXDownload @($manifest.downloads) $ArchivePath
+  $actualSha512 = (Get-FileHash -Algorithm SHA512 -Path $ArchivePath).Hash.ToLowerInvariant()
+  if ($actualSha512 -ne $manifest.sha512.ToLowerInvariant()) {
+    Remove-Item -Force $ArchivePath -ErrorAction SilentlyContinue
+    throw "agentx-admin binary archive SHA512 mismatch."
+  }
+} else {
+  Save-AgentXDownload @($manifestPath) $ArchivePath
 }
 
 Remove-Item -Recurse -Force $ExtractDir -ErrorAction SilentlyContinue
@@ -87,4 +100,5 @@ Unblock-File -Path $Target -ErrorAction SilentlyContinue
 Copy-Item -LiteralPath $Target -Destination $AliasTarget -Force
 Unblock-File -Path $AliasTarget -ErrorAction SilentlyContinue
 
-Write-Output "agentx-admin $($manifest.version) installed at $Target."
+$InstalledVersion = if ($manifest -and $manifest.version) { $manifest.version } else { $latest.latestVersion }
+Write-Output "agentx-admin $InstalledVersion installed at $Target."
