@@ -12,7 +12,7 @@
       "url": "https://agentx.aelus.tech/cli/agentx-listing-generation/releases/0.0.1/agentx-listing-generation_0.0.1_darwin_amd64.tar.gz"
     }
   ],
-  "sha512": "eafd3aa6dc3771ca8ba50db521cef8c9fdd12b79cdf28db21dae95f791f40770f2c5f8255fbc65d1d7788538a19143244cfa8f7df13998db76a24e2aff180407",
+  "sha512": "db0eb3dfec62004b1cf26bcce44b826ce40503ab410c76b44bc2c8fc6daf6adbab907fde843768920528cf37b518721357c4987e6a5b8d73ba7ad7fe361b89fd",
   "size": 10279785,
-  "releasedAt": "2026-06-02T12:04:57Z"
+  "releasedAt": "2026-06-02T12:25:20Z"
 }
