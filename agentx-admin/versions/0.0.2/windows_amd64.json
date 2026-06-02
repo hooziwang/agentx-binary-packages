@@ -1,0 +1,18 @@
+{
+  "name": "agentx-admin",
+  "version": "0.0.2",
+  "platform": "windows_amd64",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-admin/releases/0.0.2/agentx-admin_0.0.2_windows_amd64.zip"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-admin/releases/0.0.2/agentx-admin_0.0.2_windows_amd64.zip"
+    }
+  ],
+  "sha512": "d386b13f629e5472b2ec616ead7da8986775ee3a644b001d36497e2a16a3ca9cb15675888024385b1a20dee7acf0e7aafa3a5454a880230a501da99f22b7fc74",
+  "size": 3118039,
+  "releasedAt": "2026-06-02T13:03:09Z"
+}
