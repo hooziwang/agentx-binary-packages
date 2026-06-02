@@ -1,7 +1,7 @@
 {
   "name": "agentx-admin",
   "latestVersion": "0.0.1",
-  "releasedAt": "2026-06-02T12:13:29Z",
+  "releasedAt": "2026-06-02T12:27:47Z",
   "manifests": {
     "darwin_arm64": "agentx-admin/versions/0.0.1/darwin_arm64.json",
     "darwin_amd64": "agentx-admin/versions/0.0.1/darwin_amd64.json",

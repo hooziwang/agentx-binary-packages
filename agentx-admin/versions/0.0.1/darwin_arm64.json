@@ -12,7 +12,7 @@
       "url": "https://agentx.aelus.tech/cli/agentx-admin/releases/0.0.1/agentx-admin_0.0.1_darwin_arm64.tar.gz"
     }
   ],
-  "sha512": "c3a977d7cd86fcc21d349369664f5a1f6bd488f6378fd8d2d94fdc442f40581250e3ebaa05a0a411f72117c9773933f28316f182c810d88635abcd9788e1b616",
-  "size": 2814018,
-  "releasedAt": "2026-06-02T12:13:29Z"
+  "sha512": "4b002daa8160d8e968e819238038c19573d097cb51c7b5f336393e1701d60ab74b14d881d88b70e724f743034f44e7051a7299dd30b4ab8613d8ac10790cf7bc",
+  "size": 2814024,
+  "releasedAt": "2026-06-02T12:27:47Z"
 }
