@@ -12,7 +12,7 @@
       "url": "https://agentx.aelus.tech/cli/agentx-admin/releases/0.0.1/agentx-admin_0.0.1_windows_amd64.zip"
     }
   ],
-  "sha512": "5a535eff9b47e6e2a43b6b6a6fd5c1e21d35b92c7acc17e708c6092effae6673e8a8f4dd805b2c1608331a4670c472c4ead4869c7e20ae7c3e04e436ab461f9f",
+  "sha512": "5f00c61c380ad9965e27fd125b962409c72b75937c0a9346525ab14bdbe55fcf621878d5ff84b2ccd53c3f0f4d77141c9534f553f636abff6c438e4437d08635",
   "size": 3118040,
-  "releasedAt": "2026-06-02T12:27:47Z"
+  "releasedAt": "2026-06-02T12:34:04Z"
 }
