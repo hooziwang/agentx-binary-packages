@@ -169,5 +169,6 @@ try {
   Write-Warning "Failed to create ax.exe command alias at ${AliasTarget}: $_"
 }
 
-& $Target install --dir $InstallDir
-Write-Output "AgentX $($manifest.version) installed at $Target."
+& $Target install --dir $InstallDir | Out-Null
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+Write-Output "AgentX $($manifest.version) installed."

@@ -198,5 +198,5 @@ mv "$tmp_target" "$target"
 xattr -d com.apple.quarantine "$target" >/dev/null 2>&1 || true
 ensure_ax_alias
 
-"$target" install --dir "$INSTALL_DIR"
-echo "AgentX ${latest_version} installed at ${target}."
+"$target" install --dir "$INSTALL_DIR" >/dev/null
+echo "AgentX ${latest_version} installed."
