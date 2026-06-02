@@ -1,9 +1,9 @@
 {
   "name": "agentx",
-  "latestVersion": "0.1.5",
-  "releasedAt": "2026-06-01T12:45:12.934Z",
+  "latestVersion": "0.0.1",
+  "releasedAt": "2026-06-02T09:45:42Z",
   "manifests": {
-    "darwin_arm64": "agentx/versions/0.1.5/darwin_arm64.json",
-    "windows_amd64": "agentx/versions/0.1.5/windows_amd64.json"
+    "darwin_arm64": "agentx/versions/0.0.1/darwin_arm64.json",
+    "windows_amd64": "agentx/versions/0.0.1/windows_amd64.json"
   }
 }
