@@ -12,7 +12,7 @@
       "url": "https://agentx.aelus.tech/cli/agentx-ib-dd/releases/0.0.1/agentx-ib-dd_0.0.1_darwin_arm64.tar.gz"
     }
   ],
-  "sha512": "f2f904459d21e12a5dda1f02aa6707faa78ed759f51a741bda894d205c943517127c4050bf56a5a0fc4fddd927c71c748a4b52f5a0663b44c548aa732e752370",
+  "sha512": "1a21b330fe901768046983f0457dc291f1c527a632ce2797e795138351370cad7dacaee01d1e5564b864671a87cf0b43baba08bf340d9e531deb7c1faebd7441",
   "size": 8610102,
-  "releasedAt": "2026-06-02T13:45:15Z"
+  "releasedAt": "2026-06-02T13:51:11Z"
 }
