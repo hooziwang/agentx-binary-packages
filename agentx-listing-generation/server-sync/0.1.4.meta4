@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metalink xmlns="urn:ietf:params:xml:ns:metalink">
+  <file name="agentx-listing-generation_0.1.4_darwin_arm64.tar.gz">
+    <size>8792434</size>
+    <hash type="sha-512">23cbcbfece5b4f87e2b9ea94c0fe9516ce0f7dbb477abc391cb081b742de73b8e355307bc717107ae12d91d94977459946c8d56a6e068b8602328249ee6a058d</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-listing-generation-v0.1.4/agentx-listing-generation_0.1.4_darwin_arm64.tar.gz</url>
+  </file>
+  <file name="agentx-listing-generation_0.1.4_darwin_amd64.tar.gz">
+    <size>10473480</size>
+    <hash type="sha-512">2dcd1c7512639c269cfc84bcf0c57e616582250c373c6983fb9cf50f7e4697066b925ddba94f543547dfbe2965c3a72765c3989e9114630c22e2232ae0873962</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-listing-generation-v0.1.4/agentx-listing-generation_0.1.4_darwin_amd64.tar.gz</url>
+  </file>
+  <file name="agentx-listing-generation_0.1.4_linux_amd64.tar.gz">
+    <size>10222151</size>
+    <hash type="sha-512">4a7c3fd0fcc18ffec64deaebb971a85656975d3692a7e1b93100d3d7b437140f19837fec3fd840718a3edf35ed1a6f7e5a081178f585f00bf0c915e051040641</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-listing-generation-v0.1.4/agentx-listing-generation_0.1.4_linux_amd64.tar.gz</url>
+  </file>
+  <file name="agentx-listing-generation_0.1.4_linux_arm64.tar.gz">
+    <size>8363758</size>
+    <hash type="sha-512">66737a05e84feeed2dbbdf19db1d18f4305a2f1f17654916b26741e6bc7e6b357a6e73f63ebc7331197b7134c916a156f55b3275362e1737efe08e7de6042e7f</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-listing-generation-v0.1.4/agentx-listing-generation_0.1.4_linux_arm64.tar.gz</url>
+  </file>
+  <file name="agentx-listing-generation_0.1.4_windows_amd64.zip">
+    <size>10488543</size>
+    <hash type="sha-512">d66421d1fe968ee5fddd6e4f5b94b7eff06b7c24cb4ff6abfc7cbeef24bf033a5acb5f078803bbbcae6515a7eafedc7f27d91366801ae1a6d73d9a4cf59a2021</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-listing-generation-v0.1.4/agentx-listing-generation_0.1.4_windows_amd64.zip</url>
+  </file>
+</metalink>
