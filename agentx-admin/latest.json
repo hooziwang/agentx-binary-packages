@@ -1,12 +1,17 @@
 {
+  "schema": "agentx.release.latest.v1",
+  "kind": "admin-cli",
   "name": "agentx-admin",
-  "latestVersion": "0.0.3",
-  "releasedAt": "2026-06-02T17:38:56Z",
+  "releaseSlug": "agentx-admin",
+  "displayName": "AgentX Admin",
+  "commandName": "agentx-admin",
+  "latestVersion": "0.1.0",
+  "releasedAt": "2026-06-03T09:43:13Z",
   "manifests": {
-    "darwin_arm64": "agentx-admin/versions/0.0.3/darwin_arm64.json",
-    "darwin_amd64": "agentx-admin/versions/0.0.3/darwin_amd64.json",
-    "linux_amd64": "agentx-admin/versions/0.0.3/linux_amd64.json",
-    "linux_arm64": "agentx-admin/versions/0.0.3/linux_arm64.json",
-    "windows_amd64": "agentx-admin/versions/0.0.3/windows_amd64.json"
+    "darwin_arm64": "agentx-admin/versions/0.1.0/darwin_arm64.json",
+    "darwin_amd64": "agentx-admin/versions/0.1.0/darwin_amd64.json",
+    "linux_amd64": "agentx-admin/versions/0.1.0/linux_amd64.json",
+    "linux_arm64": "agentx-admin/versions/0.1.0/linux_arm64.json",
+    "windows_amd64": "agentx-admin/versions/0.1.0/windows_amd64.json"
   }
 }

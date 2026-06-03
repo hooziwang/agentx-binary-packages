@@ -1,0 +1,25 @@
+{
+  "schema": "agentx.release.platform.v1",
+  "kind": "admin-cli",
+  "name": "agentx-admin",
+  "releaseSlug": "agentx-admin",
+  "displayName": "AgentX Admin",
+  "commandName": "agentx-admin",
+  "version": "0.1.0",
+  "platform": "windows_amd64",
+  "archiveType": "zip",
+  "binaryName": "agentx-admin.exe",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-admin/releases/0.1.0/agentx-admin_0.1.0_windows_amd64.zip"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-admin/releases/0.1.0/agentx-admin_0.1.0_windows_amd64.zip"
+    }
+  ],
+  "sha512": "cd26d65b40196347148194ad0cec5ac1467d44705c87c301aad3143e26b405013b28ac6641c9d18c06a0241bc1f3233e211c67bf4a93ebc3e6fbb072e5c22884",
+  "size": 3129485,
+  "releasedAt": "2026-06-03T09:43:13Z"
+}

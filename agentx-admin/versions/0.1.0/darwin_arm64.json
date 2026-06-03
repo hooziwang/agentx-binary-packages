@@ -1,0 +1,25 @@
+{
+  "schema": "agentx.release.platform.v1",
+  "kind": "admin-cli",
+  "name": "agentx-admin",
+  "releaseSlug": "agentx-admin",
+  "displayName": "AgentX Admin",
+  "commandName": "agentx-admin",
+  "version": "0.1.0",
+  "platform": "darwin_arm64",
+  "archiveType": "tar.gz",
+  "binaryName": "agentx-admin",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-admin/releases/0.1.0/agentx-admin_0.1.0_darwin_arm64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-admin/releases/0.1.0/agentx-admin_0.1.0_darwin_arm64.tar.gz"
+    }
+  ],
+  "sha512": "e93b6e6e562db21bac22140ed38ee6fa364601d147fe91a4e75bd426a41b686ef16a94730adff3d760b57c9bfd7e5a1b2ddea3a45198a3c6bc47f7c16b0d56d4",
+  "size": 2821731,
+  "releasedAt": "2026-06-03T09:43:13Z"
+}
