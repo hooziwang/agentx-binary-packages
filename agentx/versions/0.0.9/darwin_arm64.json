@@ -1,0 +1,25 @@
+{
+  "schema": "agentx.release.platform.v1",
+  "kind": "core-cli",
+  "name": "agentx",
+  "releaseSlug": "agentx",
+  "displayName": "AgentX",
+  "commandName": "agentx",
+  "version": "0.0.9",
+  "platform": "darwin_arm64",
+  "archiveType": "tar.gz",
+  "binaryName": "agentx",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-v0.0.9/agentx_0.0.9_darwin_arm64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx/releases/0.0.9/agentx_0.0.9_darwin_arm64.tar.gz"
+    }
+  ],
+  "sha512": "0bd3d46445dd3edcdfa430fc724ac3fd8962c6639b459632c7e744183615d1f515369695410d7359822f2081cc13351b7c02d2b3d45ea27f587fd524d0ce5bab",
+  "size": 3579198,
+  "releasedAt": "2026-06-03T18:44:24Z"
+}

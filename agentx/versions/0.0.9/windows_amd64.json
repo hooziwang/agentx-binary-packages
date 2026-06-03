@@ -1,0 +1,25 @@
+{
+  "schema": "agentx.release.platform.v1",
+  "kind": "core-cli",
+  "name": "agentx",
+  "releaseSlug": "agentx",
+  "displayName": "AgentX",
+  "commandName": "agentx",
+  "version": "0.0.9",
+  "platform": "windows_amd64",
+  "archiveType": "zip",
+  "binaryName": "agentx.exe",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-v0.0.9/agentx_0.0.9_windows_amd64.zip"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx/releases/0.0.9/agentx_0.0.9_windows_amd64.zip"
+    }
+  ],
+  "sha512": "42328821f65562247e76cf0f75249941d2903922decdb891d611ed93a10447574b76c920998ff4216fe93a7be351a6daf95df5dadad5140a7a1cf5dd13f76157",
+  "size": 3961091,
+  "releasedAt": "2026-06-03T18:44:24Z"
+}
