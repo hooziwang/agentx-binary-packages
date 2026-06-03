@@ -1,9 +1,17 @@
 {
+  "schema": "agentx.release.latest.v1",
+  "kind": "core-cli",
   "name": "agentx",
-  "latestVersion": "0.0.2",
-  "releasedAt": "2026-06-02T12:07:57Z",
+  "releaseSlug": "agentx",
+  "displayName": "AgentX",
+  "commandName": "agentx",
+  "latestVersion": "0.0.3",
+  "releasedAt": "2026-06-03T08:16:14Z",
   "manifests": {
-    "darwin_arm64": "agentx/versions/0.0.2/darwin_arm64.json",
-    "windows_amd64": "agentx/versions/0.0.2/windows_amd64.json"
+    "darwin_arm64": "agentx/versions/0.0.3/darwin_arm64.json",
+    "darwin_amd64": "agentx/versions/0.0.3/darwin_amd64.json",
+    "linux_amd64": "agentx/versions/0.0.3/linux_amd64.json",
+    "linux_arm64": "agentx/versions/0.0.3/linux_arm64.json",
+    "windows_amd64": "agentx/versions/0.0.3/windows_amd64.json"
   }
 }

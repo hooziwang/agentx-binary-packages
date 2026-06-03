@@ -44,13 +44,6 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
-os_name="$(uname -s)"
-arch_name="$(uname -m)"
-if [ "$os_name" != "Darwin" ] || [ "$arch_name" != "arm64" ]; then
-  echo "AgentX CLI installer supports macOS Apple Silicon only. Current platform: ${os_name}/${arch_name}" >&2
-  exit 1
-fi
-
 require_command() {
   if ! command -v "$1" >/dev/null 2>&1; then
     echo "AgentX CLI installer requires $1." >&2
@@ -58,10 +51,47 @@ require_command() {
   fi
 }
 
+detect_platform() {
+  local os_name arch_name os arch platform
+  os_name="$(uname -s)"
+  arch_name="$(uname -m)"
+
+  case "$os_name" in
+    Darwin) os="darwin" ;;
+    Linux) os="linux" ;;
+    *)
+      echo "AgentX CLI installer supports macOS and Linux. Current OS: $os_name" >&2
+      exit 1
+      ;;
+  esac
+
+  case "$arch_name" in
+    arm64|aarch64) arch="arm64" ;;
+    x86_64|amd64) arch="amd64" ;;
+    *)
+      echo "AgentX CLI installer supports arm64 and amd64. Current arch: $arch_name" >&2
+      exit 1
+      ;;
+  esac
+
+  platform="${os}_${arch}"
+  case "$platform" in
+    darwin_arm64|darwin_amd64|linux_amd64|linux_arm64) printf '%s' "$platform" ;;
+    *)
+      echo "AgentX CLI installer does not have a release asset for $platform." >&2
+      exit 1
+      ;;
+  esac
+}
+
 require_command curl
 require_command tar
-require_command shasum
+if ! command -v sha512sum >/dev/null 2>&1 && ! command -v shasum >/dev/null 2>&1; then
+  echo "AgentX CLI installer requires sha512sum or shasum." >&2
+  exit 1
+fi
 
+PLATFORM="$(detect_platform)"
 tmp_dir="$(mktemp -d "${TMPDIR:-/tmp}/agentx-install.XXXXXX")"
 cleanup() {
   rm -rf "$tmp_dir"
@@ -108,6 +138,20 @@ json_urls() {
     | sed -E 's/.*"url"[[:space:]]*:[[:space:]]*"([^"]+)".*/\1/'
 }
 
+sha512_file() {
+  if command -v sha512sum >/dev/null 2>&1; then
+    sha512sum "$1" | awk '{print $1}' | tr 'A-F' 'a-f'
+    return
+  fi
+  shasum -a 512 "$1" | awk '{print $1}' | tr 'A-F' 'a-f'
+}
+
+remove_quarantine() {
+  if command -v xattr >/dev/null 2>&1; then
+    xattr -d com.apple.quarantine "$1" >/dev/null 2>&1 || true
+  fi
+}
+
 ensure_ax_alias() {
   local alias_path
   alias_path="$INSTALL_DIR/ax"
@@ -125,7 +169,7 @@ ensure_ax_alias() {
     fi
     chmod +x "$alias_path" || true
   fi
-  xattr -d com.apple.quarantine "$alias_path" >/dev/null 2>&1 || true
+  remove_quarantine "$alias_path"
 }
 
 latest_path="$tmp_dir/latest.json"
@@ -136,13 +180,13 @@ fi
 
 latest_json="$(cat "$latest_path")"
 latest_version="$(json_string "$latest_json" "latestVersion")"
-manifest_path="$(json_string "$latest_json" "darwin_arm64")"
+manifest_path="$(json_string "$latest_json" "$PLATFORM")"
 if [ "$latest_version" = "" ] || [ "$manifest_path" = "" ]; then
   echo "AgentX latest manifest is missing required fields." >&2
   exit 1
 fi
 
-platform_manifest_path="$tmp_dir/darwin_arm64.json"
+platform_manifest_path="$tmp_dir/${PLATFORM}.json"
 if ! fetch_from_sources "$manifest_path" "$platform_manifest_path"; then
   echo "Failed to download AgentX platform manifest." >&2
   exit 1
@@ -174,7 +218,7 @@ if [ "$downloaded" != "1" ]; then
   exit 1
 fi
 
-actual_sha512="$(shasum -a 512 "$archive_path" | awk '{print $1}' | tr 'A-F' 'a-f')"
+actual_sha512="$(sha512_file "$archive_path")"
 if [ "$actual_sha512" != "$expected_sha512" ]; then
   rm -f "$archive_path"
   echo "AgentX binary archive SHA512 mismatch." >&2
@@ -195,7 +239,7 @@ tmp_target="${target}.tmp.$$"
 cp "$extract_dir/agentx" "$tmp_target"
 chmod +x "$tmp_target"
 mv "$tmp_target" "$target"
-xattr -d com.apple.quarantine "$target" >/dev/null 2>&1 || true
+remove_quarantine "$target"
 ensure_ax_alias
 
 "$target" install --dir "$INSTALL_DIR" >/dev/null
