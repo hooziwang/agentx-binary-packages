@@ -5,13 +5,13 @@
   "releaseSlug": "agentx",
   "displayName": "AgentX",
   "commandName": "agentx",
-  "latestVersion": "0.0.5",
-  "releasedAt": "2026-06-03T14:58:45Z",
+  "latestVersion": "0.0.6",
+  "releasedAt": "2026-06-03T15:34:35Z",
   "manifests": {
-    "darwin_arm64": "agentx/versions/0.0.5/darwin_arm64.json",
-    "darwin_amd64": "agentx/versions/0.0.5/darwin_amd64.json",
-    "linux_amd64": "agentx/versions/0.0.5/linux_amd64.json",
-    "linux_arm64": "agentx/versions/0.0.5/linux_arm64.json",
-    "windows_amd64": "agentx/versions/0.0.5/windows_amd64.json"
+    "darwin_arm64": "agentx/versions/0.0.6/darwin_arm64.json",
+    "darwin_amd64": "agentx/versions/0.0.6/darwin_amd64.json",
+    "linux_amd64": "agentx/versions/0.0.6/linux_amd64.json",
+    "linux_arm64": "agentx/versions/0.0.6/linux_arm64.json",
+    "windows_amd64": "agentx/versions/0.0.6/windows_amd64.json"
   }
 }

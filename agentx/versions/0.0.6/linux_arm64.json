@@ -1,0 +1,25 @@
+{
+  "schema": "agentx.release.platform.v1",
+  "kind": "core-cli",
+  "name": "agentx",
+  "releaseSlug": "agentx",
+  "displayName": "AgentX",
+  "commandName": "agentx",
+  "version": "0.0.6",
+  "platform": "linux_arm64",
+  "archiveType": "tar.gz",
+  "binaryName": "agentx",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-v0.0.6/agentx_0.0.6_linux_arm64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx/releases/0.0.6/agentx_0.0.6_linux_arm64.tar.gz"
+    }
+  ],
+  "sha512": "64607ac13c6864301157452091a8f793f92e9a0f24170dd541bfbc8e3c22522df4b81756605347e2b058907ce46d6a6262ad65e91327941b7bf6ed0f061e95e9",
+  "size": 3458592,
+  "releasedAt": "2026-06-03T15:34:35Z"
+}
