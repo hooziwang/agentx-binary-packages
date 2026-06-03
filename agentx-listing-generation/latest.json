@@ -1,12 +1,17 @@
 {
+  "schema": "agentx.release.latest.v1",
+  "kind": "app",
   "name": "agentx-listing-generation",
-  "latestVersion": "0.0.1",
-  "releasedAt": "2026-06-02T12:25:20Z",
+  "releaseSlug": "agentx-listing-generation",
+  "displayName": "Listing Generation",
+  "commandName": "alg",
+  "latestVersion": "0.1.1",
+  "releasedAt": "2026-06-03T11:34:46Z",
   "manifests": {
-    "darwin_arm64": "agentx-listing-generation/versions/0.0.1/darwin_arm64.json",
-    "darwin_amd64": "agentx-listing-generation/versions/0.0.1/darwin_amd64.json",
-    "linux_amd64": "agentx-listing-generation/versions/0.0.1/linux_amd64.json",
-    "linux_arm64": "agentx-listing-generation/versions/0.0.1/linux_arm64.json",
-    "windows_amd64": "agentx-listing-generation/versions/0.0.1/windows_amd64.json"
+    "darwin_arm64": "agentx-listing-generation/versions/0.1.1/darwin_arm64.json",
+    "darwin_amd64": "agentx-listing-generation/versions/0.1.1/darwin_amd64.json",
+    "linux_amd64": "agentx-listing-generation/versions/0.1.1/linux_amd64.json",
+    "linux_arm64": "agentx-listing-generation/versions/0.1.1/linux_arm64.json",
+    "windows_amd64": "agentx-listing-generation/versions/0.1.1/windows_amd64.json"
   }
 }

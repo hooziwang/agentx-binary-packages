@@ -1,0 +1,25 @@
+{
+  "schema": "agentx.release.platform.v1",
+  "kind": "app",
+  "name": "agentx-listing-generation",
+  "releaseSlug": "agentx-listing-generation",
+  "displayName": "Listing Generation",
+  "commandName": "alg",
+  "version": "0.1.1",
+  "platform": "darwin_amd64",
+  "archiveType": "tar.gz",
+  "binaryName": "alg",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-listing-generation/releases/0.1.1/agentx-listing-generation_0.1.1_darwin_amd64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-listing-generation/releases/0.1.1/agentx-listing-generation_0.1.1_darwin_amd64.tar.gz"
+    }
+  ],
+  "sha512": "4e914a378054adf9ba51b78af9fd6033574a0db882ad38c1e7d5e7428eb435bd298289360c90215ccaf11043796b6b0626ffc234c9287e576e3aee4a5fec766a",
+  "size": 10480223,
+  "releasedAt": "2026-06-03T11:34:46Z"
+}

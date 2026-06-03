@@ -1,0 +1,25 @@
+{
+  "schema": "agentx.release.platform.v1",
+  "kind": "app",
+  "name": "agentx-listing-generation",
+  "releaseSlug": "agentx-listing-generation",
+  "displayName": "Listing Generation",
+  "commandName": "alg",
+  "version": "0.1.1",
+  "platform": "windows_amd64",
+  "archiveType": "zip",
+  "binaryName": "alg.exe",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://raw.githubusercontent.com/hooziwang/agentx-binary-packages/main/agentx-listing-generation/releases/0.1.1/agentx-listing-generation_0.1.1_windows_amd64.zip"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-listing-generation/releases/0.1.1/agentx-listing-generation_0.1.1_windows_amd64.zip"
+    }
+  ],
+  "sha512": "b27f00d8cd38a9d9f571d1689051b45a82c6f67dcb8fad9ae6c65e4468a718518233eb56bce07fcb11877f64f3ff025fbcfa82f92930bf982c56a91df8c1ca64",
+  "size": 10495755,
+  "releasedAt": "2026-06-03T11:34:46Z"
+}
