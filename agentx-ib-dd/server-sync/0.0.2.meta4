@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metalink xmlns="urn:ietf:params:xml:ns:metalink">
+  <file name="agentx-ib-dd_0.0.2_darwin_arm64.tar.gz">
+    <size>11195424</size>
+    <hash type="sha-512">4c86e6b8ab2eca6a5c42e4b0f0fa272d491b900b84597ef7521536636dff2daf9baaf08d45ea29cf07fcdb7ecbc93786a94722b40e0ef296c03176763ec09b5c</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-ib-dd-v0.0.2/agentx-ib-dd_0.0.2_darwin_arm64.tar.gz</url>
+  </file>
+  <file name="agentx-ib-dd_0.0.2_darwin_amd64.tar.gz">
+    <size>13024071</size>
+    <hash type="sha-512">e58c73331136261b18110c081871a8a3acb9b4597d3c9685cd3ad293b41ed268710dd08efb01de536b9bd5c50b30dc117ec8d4045fd2f47b8fed97bc93d6884d</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-ib-dd-v0.0.2/agentx-ib-dd_0.0.2_darwin_amd64.tar.gz</url>
+  </file>
+  <file name="agentx-ib-dd_0.0.2_linux_amd64.tar.gz">
+    <size>12718153</size>
+    <hash type="sha-512">624ad206b43e5b2744ef3cde4a9c0456f994324bcdcdfc90710925071930fcf56535e0405f3c1c4396cedc9c953e80b5b6f1dafd4a5260b15770522eead60c17</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-ib-dd-v0.0.2/agentx-ib-dd_0.0.2_linux_amd64.tar.gz</url>
+  </file>
+  <file name="agentx-ib-dd_0.0.2_linux_arm64.tar.gz">
+    <size>10658189</size>
+    <hash type="sha-512">d002b3494c0730d1dc0990a3c010868413dadca73b322c0c7627dcebacfd26f5b108733af8683dc90922e5fb23a8cbea6cdf4235a322874e71b7818e5e4a2d51</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-ib-dd-v0.0.2/agentx-ib-dd_0.0.2_linux_arm64.tar.gz</url>
+  </file>
+  <file name="agentx-ib-dd_0.0.2_windows_amd64.zip">
+    <size>13011366</size>
+    <hash type="sha-512">6b989c128511d6cea0d229a67e6f4e5111c1ec3257c239d43f8bfe186795920b668f748b367231f11e1cca34aec839fb7cb2b01c2522ed06645f42fc93edec58</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-ib-dd-v0.0.2/agentx-ib-dd_0.0.2_windows_amd64.zip</url>
+  </file>
+</metalink>

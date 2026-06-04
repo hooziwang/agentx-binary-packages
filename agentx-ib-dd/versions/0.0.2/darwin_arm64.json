@@ -1,0 +1,25 @@
+{
+  "schema": "agentx.release.platform.v1",
+  "kind": "app",
+  "name": "agentx-ib-dd",
+  "releaseSlug": "agentx-ib-dd",
+  "displayName": "投行尽调",
+  "commandName": "agentx-ib-dd",
+  "version": "0.0.2",
+  "platform": "darwin_arm64",
+  "archiveType": "tar.gz",
+  "binaryName": "agentx-ib-dd",
+  "downloads": [
+    {
+      "source": "github",
+      "url": "https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-ib-dd-v0.0.2/agentx-ib-dd_0.0.2_darwin_arm64.tar.gz"
+    },
+    {
+      "source": "agentx-server",
+      "url": "https://agentx.aelus.tech/cli/agentx-ib-dd/releases/0.0.2/agentx-ib-dd_0.0.2_darwin_arm64.tar.gz"
+    }
+  ],
+  "sha512": "4c86e6b8ab2eca6a5c42e4b0f0fa272d491b900b84597ef7521536636dff2daf9baaf08d45ea29cf07fcdb7ecbc93786a94722b40e0ef296c03176763ec09b5c",
+  "size": 11195424,
+  "releasedAt": "2026-06-04T08:21:55Z"
+}

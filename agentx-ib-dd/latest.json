@@ -1,9 +1,17 @@
 {
+  "schema": "agentx.release.latest.v1",
+  "kind": "app",
   "name": "agentx-ib-dd",
-  "latestVersion": "0.0.1",
-  "releasedAt": "2026-06-02T17:31:38Z",
+  "releaseSlug": "agentx-ib-dd",
+  "displayName": "投行尽调",
+  "commandName": "agentx-ib-dd",
+  "latestVersion": "0.0.2",
+  "releasedAt": "2026-06-04T08:21:55Z",
   "manifests": {
-    "darwin_arm64": "agentx-ib-dd/versions/0.0.1/darwin_arm64.json",
-    "windows_amd64": "agentx-ib-dd/versions/0.0.1/windows_amd64.json"
+    "darwin_arm64": "agentx-ib-dd/versions/0.0.2/darwin_arm64.json",
+    "darwin_amd64": "agentx-ib-dd/versions/0.0.2/darwin_amd64.json",
+    "linux_amd64": "agentx-ib-dd/versions/0.0.2/linux_amd64.json",
+    "linux_arm64": "agentx-ib-dd/versions/0.0.2/linux_arm64.json",
+    "windows_amd64": "agentx-ib-dd/versions/0.0.2/windows_amd64.json"
   }
 }
