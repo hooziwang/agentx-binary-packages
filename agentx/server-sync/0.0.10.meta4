@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metalink xmlns="urn:ietf:params:xml:ns:metalink">
+  <file name="agentx_0.0.10_darwin_arm64.tar.gz">
+    <size>6461825</size>
+    <hash type="sha-512">6c0e119f92ec523be5b30c3c32af11554198a99360be2225a9eca2c2382392851a46662f1307d055f7e8a78a75c7a98f36bc41fae72a774ed6db1b37969876f9</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-v0.0.10/agentx_0.0.10_darwin_arm64.tar.gz</url>
+  </file>
+  <file name="agentx_0.0.10_darwin_amd64.tar.gz">
+    <size>6932623</size>
+    <hash type="sha-512">035f5c0928f3c611db38df405629faf7bb1a9029990af6442bdeb60172a4ba1590d8e28e3662a7f0bb990c736f8881ce85c85ca537e7f24cb634aafb440ae829</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-v0.0.10/agentx_0.0.10_darwin_amd64.tar.gz</url>
+  </file>
+  <file name="agentx_0.0.10_linux_amd64.tar.gz">
+    <size>6774537</size>
+    <hash type="sha-512">590c88d2a3d4c9d424bbe10d75c01e3d23b0b7786997821dfe25446e019a7afb8f6224a7a423e2f88fa98d88d415e93966d162b2166d49f71a75d4f5d4687ea0</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-v0.0.10/agentx_0.0.10_linux_amd64.tar.gz</url>
+  </file>
+  <file name="agentx_0.0.10_linux_arm64.tar.gz">
+    <size>6150425</size>
+    <hash type="sha-512">ae34a25b41dd53ce759f9b8fad96f94e99fa88f396f7e30266156ad160c2d6086c2525201d688f25b690d1e32c9e9038c0ef09626f205805c2a0b7dc558789a4</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-v0.0.10/agentx_0.0.10_linux_arm64.tar.gz</url>
+  </file>
+  <file name="agentx_0.0.10_windows_amd64.zip">
+    <size>6982836</size>
+    <hash type="sha-512">e8a9e01ab52dc0bcf6e9af6c2507540ceaacec6afdeae1442e4173fdad0e02ae4c5fb80aeaeaa27c4a8e60d9fc973dc27ce95ccf61b04c1ce7106c227b63c0fa</hash>
+    <url>https://github.com/hooziwang/agentx-binary-packages/releases/download/agentx-v0.0.10/agentx_0.0.10_windows_amd64.zip</url>
+  </file>
+</metalink>
